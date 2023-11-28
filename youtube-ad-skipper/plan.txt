@@ -1,0 +1,9 @@
+Idea:
+    Make a page that takes a youtube video, and embeds it in a seperate page with
+    the goal of avoiding ads (ads don't run in embedded youtube videos).
+
+Notes:
+    - Uses a youtube video 'embed' URL
+    - Have a short landing page for if no URL is provided with a blurb on
+        'how to use' and an example URL
+    -
