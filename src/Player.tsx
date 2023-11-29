@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import axios from "axios";
+import { useMemo } from "react";
 
 export default function Player() {
   const videoId: string | null = new URLSearchParams(
@@ -16,24 +17,34 @@ export default function Player() {
         .then((res) => res.data),
   });
 
-  if (isFetching) return "Loading...";
+  const videoData = useMemo(() => {
+    if (!isFetching && !error && data && data.items && data.items.length > 0) {
+      return data.items[0].snippet;
+    }
+    return null;
+  }, [data, error, isFetching]);
 
-  if (error) return "An error has occurred";
-
-  const videoData = data.items[0].snippet;
-
-  //console.log("data", data.items[0].snippet);
+  // console.log("query data --> ", data, error, isFetching);
 
   return (
     <>
       <iframe
-        width="1000px"
-        height="600px"
+        width="1300px"
+        height="700px"
         src={`https://www.youtube.com/embed/${videoId}`}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       ></iframe>
-      <p>{videoData.title}</p>
+      <h2>{videoData ? videoData.title : "Loading title..."}</h2>
+      <br />
+      <br />
+      <h3>
+        {isFetching
+          ? "Loading Description..."
+          : error
+          ? "Error loading Description"
+          : videoData.description}
+      </h3>
     </>
   );
 }
