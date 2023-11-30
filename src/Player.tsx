@@ -1,6 +1,6 @@
+import { useMemo } from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
-import { useMemo } from "react";
 
 export default function Player() {
   const videoId: string | null = new URLSearchParams(
@@ -24,8 +24,6 @@ export default function Player() {
     return null;
   }, [data, error, isFetching]);
 
-  // console.log("query data --> ", data, error, isFetching);
-
   return (
     <>
       <h1>{videoData ? videoData.title : "Loading title..."}</h1>
@@ -36,13 +34,32 @@ export default function Player() {
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       ></iframe>
-      <h4>
-        {isFetching
-          ? "Loading Description..."
-          : error
-          ? "Error loading Description"
-          : videoData.description}
-      </h4>
+      <div className="mid">
+        <pre>
+          {isFetching
+            ? "Loading Description..."
+            : error
+            ? "Error loading Description"
+            : videoData.description}
+        </pre>
+      </div>
+      <div>
+        <hr></hr>
+        <p>
+          <b>Instructions:</b>
+        </p>
+        <ol>
+          <li>Drag link onto bookmarks bar</li>
+          <li>Watch videos on youtube</li>
+          <li>If ads appear, click bookmark</li>
+        </ol>
+        <p>
+          Drag onto bookmarks bar 👉 &nbsp;
+          <a href="javascript:(function(){window.location.href = window.location.href.replace('www.youtube.com/watch', 'benuca.github.io/react-youtube-ad-skipper/');})();">
+            Play without ads
+          </a>
+        </p>
+      </div>
     </>
   );
 }

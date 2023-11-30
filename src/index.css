@@ -5,11 +5,24 @@ body {
 }
 
 .holder {
-  width: 1000;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  margin: 20px 400px;
+  justify-content: center;
+}
+
+.mid {
+  flex-direction: row;
+  display: flex;
+}
+
+h1,
+h4,
+pre {
+  max-width: 900px;
+  white-space: pre-wrap;
+}
+
+pre {
+  padding: 12px;
 }
