@@ -3,9 +3,11 @@ import { useQuery } from "react-query";
 import axios from "axios";
 
 export default function Player() {
-  const videoId: string | null = new URLSearchParams(
-    window.location.search
-  ).get("v");
+  const params = new URLSearchParams(window.location.search);
+
+  const videoId: string | null = params.get("v")
+    ? params.get("v")
+    : "jfKfPfyJRdk";
 
   const { error, data, isFetching } = useQuery({
     queryKey: ["youtubeData"],
