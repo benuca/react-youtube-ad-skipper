@@ -6,12 +6,11 @@ function App() {
   const queryClient = new QueryClient();
 
   return (
-    <>
+    <div className="holder">
       <QueryClientProvider client={queryClient}>
-        <h1>Youtube Embedder/Ad Skipper</h1>
         <Player />
       </QueryClientProvider>
-    </>
+    </div>
   );
 }
 

@@ -28,16 +28,14 @@ export default function Player() {
 
   return (
     <>
+      <h1>{videoData ? videoData.title : "Loading title..."}</h1>
       <iframe
-        width="1300px"
-        height="700px"
+        height="600px"
+        width="900px"
         src={`https://www.youtube.com/embed/${videoId}`}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       ></iframe>
-      <h2>{videoData ? videoData.title : "Loading title..."}</h2>
-      <br />
-      <br />
       <h3>
         {isFetching
           ? "Loading Description..."
