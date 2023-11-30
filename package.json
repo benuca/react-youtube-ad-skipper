@@ -1,7 +1,7 @@
 {
   "homepage": "https://benuca.github.io/react-youtube-ad-skipper/",
   "name": "youtube-ad-skipper",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
