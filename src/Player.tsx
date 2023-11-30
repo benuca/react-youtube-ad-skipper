@@ -36,13 +36,13 @@ export default function Player() {
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       ></iframe>
-      <h3>
+      <h4>
         {isFetching
           ? "Loading Description..."
           : error
           ? "Error loading Description"
           : videoData.description}
-      </h3>
+      </h4>
     </>
   );
 }
